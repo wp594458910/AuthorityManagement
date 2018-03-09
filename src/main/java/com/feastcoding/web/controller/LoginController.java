@@ -3,6 +3,7 @@ package com.feastcoding.web.controller;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
  * Date : 2018-03-09
  * Time : 14:13
  */
+@Controller
 public class LoginController {
     @RequestMapping(value = "/login")
     public String showLoginForm(HttpServletRequest req, Model model) {
