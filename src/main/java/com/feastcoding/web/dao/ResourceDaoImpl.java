@@ -13,11 +13,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- * <p>Resource: Zhang Kaitao
- * <p>Date: 14-1-28
- * <p>Version: 1.0
- */
 @Repository
 public class ResourceDaoImpl implements ResourceDao {
     @Autowired
