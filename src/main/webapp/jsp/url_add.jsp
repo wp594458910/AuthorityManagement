@@ -5,7 +5,6 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -20,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <nav class="navbar navbar-default row no-yj  navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-list-left" aria-expanded="false">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-list-left" aria-expanded="false">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -34,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <li><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="height: 50px">
                             <img class="img-circle pull-left img-responsive nav-user-img" src="<%=path%>/static/img/user.jpg" /><span class="pull-left nav-username">${sessionScope.user.name }</span></a>
                         </li>
-                        <li><a class="dropdown-toggle" data-toggle="dropdown" href="<%=path%>/logout.do" style="height: 50px">
+                        <li><a class="dropdown-toggle" data-toggle="dropdown" href="<%=path%>/static/login.jsp" style="height: 50px">
                             <span class="pull-left">退出</span></a>
                         </li>
                     </ul>
@@ -46,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="row" style="margin-top:70px">
             <div class="  nav-left col-md-2 no-padding" id="nav-list-left">
                 <div class="user-panel">
-                    <img src="<%=path%>/static/img/user.jpg" class="img-circle center-block" />
+                    <img src="<%=path%>/jsp/img/user.jpg" class="img-circle center-block" />
                 </div>
 
                 <div class="nav-list" >
@@ -65,21 +64,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="panel-body">
                     <ol class="breadcrumb">
                         <li><a href="#">首页</a></li>
+                        <li><a href="#">新增链接</a></li>
                     </ol>
                 </div>
                 
                 <div class="col-md-12">
+                	
                     <div class="panel panel-default ">
-                        <div class="panel-heading">后台主页</div>
+                        <div class="panel-heading">新增链接</div>
+                        
                         <div class="panel-body">
-                        	<div class="main-right  col-xs-12">
-                        		<span>欢迎登录FeastCoding后台管理系统！</span>
+                        	<div class="main  col-xs-12">
+                        	<form action="<%=path %>/addUrl.do" method="post">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">名称</label>
+                                    <input type="text" name="name" class="form-control" placeholder="名称" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">url</label>
+                                    <input type="text" name="url" class="form-control" placeholder="url" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">描述</label>
+                                    <input type="text" name="description" class="form-control" placeholder="description" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">类型</label>
+                                    <select name="typeid" class="form-control">
+                                        <option value="1">菜单链接</option>
+                                        <option value="2">收藏链接</option>
+                                    </select>
+                                </div>
+                                <input type="submit" class="btn btn-default" value="提交" />
+                            </form>
                         	</div>
-                        </div>                        
-                    </div>                    
-                </div>               
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <script src="<%=path%>/static/js/jquery.min.js"></script>
+    <script src="<%=path%>/static/js/bootstrap.min.js"></script>
 </body>
 </html>
